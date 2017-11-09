@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Game Details</h1>
+
+<!-- venue -->
+<div class="venue">Venue: {{venue}}</div>
+
+<!-- template for the boxscore info -->
+<div mat-dialog-content>
+
+  <div *ngIf="dataOfThisGame; else noDetails">
+    <app-game-detail-reorganizing 
+    [dataOfThisGame]="dataOfThisGame" [homeAbbrev]="homeAbbrev" [awayAbbrev]="awayAbbrev"
+    [homeName]="homeName" [awayName]="awayName">
+    </app-game-detail-reorganizing>
+  </div>
+
+  <ng-template #noDetails>
+    <div style="font-style: italic; padding: 80px;">
+      No details available.
+    </div>
+  </ng-template>
+ 
+</div>
+
+<!-- back button -->
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">
+    Back
+  </button>
+</div>

@@ -1,0 +1,81 @@
+
+<!-- linescore -->
+<table style="padding:50px">
+  <tr>
+    <th></th>
+    <th *ngFor="let inning of linescore.innings"> {{inning.inningNumber}} </th>
+    <th> </th>
+    <th>R</th>
+    <th>H</th>
+    <th>E</th>
+  </tr>
+  <tr>
+    <td class="abbrev">{{homeAbbrev}}</td>
+    <td *ngFor="let inning of linescore.innings"> {{inning.home}} </td>
+    <td> </td>
+    <td>{{linescore.homeR}}</td>
+    <td>{{linescore.homeH}}</td>
+    <td>{{linescore.homeE}}</td>
+  </tr>
+  <tr>
+    <td class="abbrev">{{awayAbbrev}}</td>
+    <td *ngFor="let inning of linescore.innings"> {{inning.away}} </td>
+    <th> </th>
+    <td>{{linescore.awayR}}</td>
+    <td>{{linescore.awayH}}</td>
+    <td>{{linescore.awayE}}</td>
+  </tr>  
+
+</table> 
+
+<!-- batters -->
+<mat-tab-group>
+  <mat-tab label={{homeName}}>
+    <table style="padding:50px">
+      <tr>
+        <th class="left">Name</th>
+        <th>AB</th>
+        <th>R</th>
+        <th>H</th>
+        <th>RBI</th>
+        <th>BB</th>
+        <th>SO</th>
+        <th>AVG</th>
+      </tr>
+      <tr *ngFor="let batter of extractedBatters[0]">
+        <td class="left">{{batter.name}}</td>
+        <td>{{batter.ab}}</td>
+        <td>{{batter.r}}</td>
+        <td>{{batter.h}}</td>
+        <td>{{batter.rbi}}</td>
+        <td>{{batter.bb}}</td>
+        <td>{{batter.so}}</td>
+        <td>{{batter.avg}}</td>
+      </tr>
+    </table> 
+  </mat-tab>
+  <mat-tab label={{awayName}}>
+    <table style="padding:50px">
+      <tr>
+        <th class="left">Name</th>
+        <th>AB</th>
+        <th>R</th>
+        <th>H</th>
+        <th>RBI</th>
+        <th>BB</th>
+        <th>SO</th>
+        <th>AVG</th>
+      </tr>
+      <tr *ngFor="let batter of extractedBatters[1]">
+        <td class="left">{{batter.name}}</td>
+        <td>{{batter.ab}}</td>
+        <td>{{batter.r}}</td>
+        <td>{{batter.h}}</td>
+        <td>{{batter.rbi}}</td>
+        <td>{{batter.bb}}</td>
+        <td>{{batter.so}}</td>
+        <td>{{batter.avg}}</td>
+      </tr>
+    </table> 
+  </mat-tab>
+</mat-tab-group>

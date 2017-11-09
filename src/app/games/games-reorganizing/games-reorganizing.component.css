@@ -1,0 +1,29 @@
+.winning-team {
+    font-weight: bold;
+  }
+
+  .table {
+    padding: 30px;
+  }
+
+  .status {
+    font-style: italic;
+  }
+
+  .set-fav-team {
+    min-width:450px; 
+    text-align: right; 
+    font-style: italic;
+    color: blue;
+    font-size: 10px;
+  }
+
+  .fav-team {
+    min-width:450px; 
+    text-align: right; 
+    font-style: italic;
+    color: red;
+    font-size: 10px;
+  }
+
+

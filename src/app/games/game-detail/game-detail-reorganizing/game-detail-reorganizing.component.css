@@ -1,0 +1,15 @@
+table
+{
+    text-align: right;
+}
+
+.abbrev
+{
+    text-align: left;
+    font-weight: bold;
+}
+
+.left
+{
+    text-align: left;
+}

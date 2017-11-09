@@ -1,0 +1,5 @@
+.content {
+  background-color: rgba(218, 218, 218, 0.21);
+  position: relative;
+  overflow-y: auto;
+}

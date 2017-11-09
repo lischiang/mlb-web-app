@@ -1,0 +1,43 @@
+<table class="table" *ngFor="let g of gamesOfTheDayToDisplay">
+
+  <!-- home team info -->
+  <tr [ngClass]="{'winning-team': g.homeScore > g.awayScore}">
+    <td>{{g.homeTeam}}</td>
+    <td>{{g.homeScore}}</td>
+    <td *ngIf="g.homeTeam != favoriteTeam" class="set-fav-team" style="font-weight: normal">
+      <a (click)="setAsFavorite(g.homeTeam)" href="#">Set as Favorite Team</a>
+    </td>
+    <td *ngIf="g.homeTeam == favoriteTeam" class="fav-team" style="font-weight: normal">
+      Your Favorite Team
+    </td>
+  </tr> 
+
+  <!-- away team info -->
+  <tr [ngClass]="{'winning-team': g.homeScore < g.awayScore}">
+    <td>{{g.awayTeam}}</td>
+    <td>{{g.awayScore}}</td>
+    <td *ngIf="g.awayTeam != favoriteTeam" class="set-fav-team" style="font-weight: normal">
+      <a (click)="setAsFavorite(g.awayTeam)" href="#">Set as Favorite Team</a>
+    </td>
+    <td *ngIf="g.awayTeam == favoriteTeam" class="fav-team" style="font-weight: normal">
+      Your Favorite Team
+    </td>
+  </tr>
+
+  <!-- status of the game -->
+  <tr>
+    <td class="status">{{g.status}}</td>
+  </tr>
+
+  <!-- button to open details dialog -->
+  <tr >
+    <td *ngIf="g.homeScore != null && g.awayScore != null">
+      <button mat-raised-button 
+      (click)="openDetailsDialog(g.homeTeamAbbrev, g.awayTeamAbbrev, g.homeTeam, g.awayTeam, g.gameday, g.venue)">
+        Details
+      </button>
+    </td>
+  </tr> 
+
+</table>
+  

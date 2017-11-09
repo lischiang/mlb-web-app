@@ -1,0 +1,42 @@
+<!-- date selection -->
+<table class="table">
+  <tr>
+    <td>
+      <button mat-raised-button (click)="readDataOfYesterday()">
+        <<
+      </button>
+    </td>
+    <td>
+      <mat-form-field>
+        <input matInput [matDatepickerFilter]="filterOutFutureDates" [matDatepicker]="dp3" placeholder=""
+          [(ngModel)]="gameDate" (dateChange)="readDataOfTheDay(gameDate)" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false" startView="day"></mat-datepicker>
+      </mat-form-field>
+    </td>
+    <td>
+      <button mat-raised-button (click)="readDataOfTomorrow()" [disabled]="!isToday()">
+        >>
+      </button>
+    </td>
+  </tr>
+</table>
+
+<!-- current favorite team  -->
+<div class="message">Your favorite team is: {{favoriteTeam}}</div>
+
+<!-- data of the games of the day -->
+<div *ngIf="dataOfTheDay; else noGame">
+  <app-games-reorganizing [dataOfTheDay]="dataOfTheDay" [favoriteTeam]="favoriteTeam" 
+    [day]="day" [month]="month" [year]="year" (updatedFavoriteTeam)="handleUpdatedFavoriteTeam($event)">
+  </app-games-reorganizing>
+</div>
+
+<ng-template #noGame>
+  <div style="font-style: italic; padding: 80px;">
+    No games today.
+  </div>
+</ng-template>
+
+
+
