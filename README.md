@@ -1,5 +1,5 @@
 # MlbWebApp
-Web app in Angular 2 to consult the scoreboard of the Major League Baseball
+Web app in Angular 4 to consult the scoreboard of the Major League Baseball
 
 ## To run the code (Windows)
 - download ZIP of the master branch
